@@ -1,0 +1,17 @@
+services:
+  db:
+    image: postgres:latest
+    container_name: postgres_db
+    restart: always
+    environment:
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=secretpassword
+      - POSTGRES_DB=myapp_db
+    ports:
+      - "5432:5432"
+    volumes:
+      # Change the path here:
+      - pg_data:/var/lib/postgresql:Z
+
+volumes:
+  pg_data:
