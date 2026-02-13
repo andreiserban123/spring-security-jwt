@@ -46,6 +46,12 @@ public class UserController {
         this.userService.deactivateAccount(getUserId(principal));
     }
 
+    @PatchMapping("/me/reactivate")
+    @ResponseStatus(code = HttpStatus.NO_CONTENT)
+    public void reactivateAccount(final Authentication principal) {
+        this.userService.reactivateAccount(getUserId(principal));
+    }
+
     private String getUserId(Authentication principal) {
         return ((User) Objects.requireNonNull(principal.getPrincipal())).getId();
     }
