@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: spring-security-asymetric-encryption
+  datasource:
+    url: jdbc:postgresql://localhost:5432/spring_app_db
+    username: admin
+    password: secretpassword
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    database: postgresql
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: true
+
+app:
+  security:
