@@ -16,7 +16,7 @@ public class JwtService {
     private final PublicKey publicKey;
 
     public JwtService() throws IOException, NoSuchAlgorithmException, InvalidKeySpecException {
-        this.privateKey = KeyUtils.loadPrivateKey("keys/local-only/private_key.pem");
-        this.publicKey = KeyUtils.loadPublicKey("keys/local-only/public_key.pem");
+        this.privateKey = KeyUtils.loadPrivateKey("/keys/local-only/private_key.pem");
+        this.publicKey = KeyUtils.loadPublicKey("/keys/local-only/public_key.pem");
     }
 }

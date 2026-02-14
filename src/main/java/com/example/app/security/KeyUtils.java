@@ -8,6 +8,7 @@ import java.security.PrivateKey;
 import java.security.PublicKey;
 import java.security.spec.InvalidKeySpecException;
 import java.security.spec.PKCS8EncodedKeySpec;
+import java.security.spec.X509EncodedKeySpec;
 
 public class KeyUtils {
     private KeyUtils() {
@@ -25,12 +26,13 @@ public class KeyUtils {
     }
 
     public static PublicKey loadPublicKey(final String pemPath) throws IOException, NoSuchAlgorithmException, InvalidKeySpecException {
-        final String key = readKeyFromResource(pemPath).replace("-----BEGIN PUBLIC KEY-----", "")
+        final String key = readKeyFromResource(pemPath)
+                .replace("-----BEGIN PUBLIC KEY-----", "")
                 .replace("-----END PUBLIC KEY-----", "")
                 .replaceAll("\\s+", "");
 
         final byte[] decoded = java.util.Base64.getDecoder().decode(key);
-        final PKCS8EncodedKeySpec spec = new PKCS8EncodedKeySpec(decoded);
+        final X509EncodedKeySpec spec = new X509EncodedKeySpec(decoded);
         return KeyFactory.getInstance("RSA").generatePublic(spec);
     }
 
