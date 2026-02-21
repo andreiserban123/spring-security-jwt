@@ -12,7 +12,9 @@ public enum ErrorCode {
     CHANGE_PASSWORD_MISMATCH("CHANGE_PASSWORD_MISMATCH", "Old password does not match", HttpStatus.BAD_REQUEST),
     INVALID_CURRENT_PASSWORD("INVALID_CURRENT_PASSWORD", "Invalid current password", HttpStatus.BAD_REQUEST),
     ACCOUNT_ALREADY_DEACTIVATED("ACCOUNT_ALREADY_DEACTIVATE", "The account is deactivated already", HttpStatus.BAD_REQUEST),
-    EMAIL_ALREADY_EXISTS("EMAIL_ALREADY_EXISTS", "Email %s already exists", HttpStatus.BAD_REQUEST);
+    EMAIL_ALREADY_EXISTS("EMAIL_ALREADY_EXISTS", "Email %s already exists", HttpStatus.BAD_REQUEST),
+    PHONE_EXISTS("PHONE_EXISTS", "Phone number %s already exists" , HttpStatus.BAD_REQUEST ),
+    PASSWORD_MISMATCH("PASSWORD_MISMATCH", "Passwords do not match" , HttpStatus.BAD_REQUEST );
 
     private final String code;
     private final String defaultMessage;
