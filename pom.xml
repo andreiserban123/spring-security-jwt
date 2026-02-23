@@ -9,9 +9,9 @@
         <relativePath/>
     </parent>
     <groupId>com.example</groupId>
-    <artifactId>asymmetric-encryption</artifactId>
+    <artifactId>spring-security-jwt</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>asymmetric-encryption</name>
+    <name>spring-security-jwt</name>
     <description>asymmetric type shi</description>
     <url/>
     <licenses>

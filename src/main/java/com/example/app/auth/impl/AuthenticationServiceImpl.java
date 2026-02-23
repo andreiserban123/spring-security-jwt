@@ -76,12 +76,6 @@ public class AuthenticationServiceImpl implements AuthenticationService {
         log.debug("Saving user {}", user);
         var savedUser = this.userRepository.save(user);
         log.debug("User saved {}", savedUser);
-
-        final List<User> users = new ArrayList<>();
-        users.add(user);
-        userRole.setUsers(users);
-        this.roleRepository.save(userRole);
-
     }
 
     private void checkUserEmail(String email) {
@@ -106,6 +100,12 @@ public class AuthenticationServiceImpl implements AuthenticationService {
 
     @Override
     public AuthenticationResponse refresh(RefreshRequest request) {
-        return null;
+        final String newAccessToken = this.jwtService.refreshAcessToken(request.getRefreshToken());
+        final String tokenType = "Bearer";
+        return AuthenticationResponse
+                .builder()
+                .accessToken(newAccessToken)
+                .tokenType(tokenType)
+                .build();
     }
 }
